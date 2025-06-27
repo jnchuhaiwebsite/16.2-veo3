@@ -43,7 +43,6 @@
             <div class="flex flex-col gap-2">
               <NuxtLink to="/subsidiary/privacy-policy" class="text-gray-400 hover:text-[#f49d25] transition-colors">Privacy Policy</NuxtLink>
               <NuxtLink to="/subsidiary/terms-of-service" class="text-gray-400 hover:text-[#f49d25] transition-colors">Terms of Service</NuxtLink>
-              <NuxtLink to="/subsidiary/disclaimer" class="text-gray-400 hover:text-[#f49d25] transition-colors">Disclaimer</NuxtLink>
             </div>
           </div>
         </div>

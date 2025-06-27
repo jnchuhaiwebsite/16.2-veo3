@@ -208,19 +208,23 @@
                     class="w-full h-full object-contain rounded-xl" 
                     autoplay 
                     loop 
-                    muted
+                    controls
                     preload="none"
                     playsinline
                     @loadstart="handleVideoLoadStart($event.target)"
                     @canplay="handleVideoCanPlay($event.target)"
+                    ref="previewVideo"
                   ></video>
-                  <!-- 视频加载状态 -->
-                  <div 
-                    v-if="previewVideoLoading[previewVideoUrl]" 
-                    class="absolute inset-0 flex items-center justify-center bg-black/50 rounded-xl"
+                  <!-- 自定义播放/暂停按钮 -->
+                  <button 
+                    @click="toggleVideoPlayPause"
+                    class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-4 rounded-full transition-all duration-300"
+                    v-show="!isVideoPlaying"
                   >
-                    <div class="animate-spin rounded-full h-10 w-10 border-4 border-[#f49d25] border-t-transparent"></div>
-                  </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    </svg>
+                  </button>
                 </div>
                 <div class="absolute top-3 sm:top-4 left-1/2 transform -translate-x-1/2 text-[#f49d25] px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg text-sm sm:text-base font-semibold shadow-lg pointer-events-none select-none whitespace-nowrap z-10">
                   AI Video Generation Demo
@@ -432,6 +436,16 @@
 
     // 获取积分数据
     fetchScoreData()
+
+    // 添加视频播放状态监听
+    if (previewVideo.value) {
+      previewVideo.value.addEventListener('play', () => {
+        isVideoPlaying.value = true
+      })
+      previewVideo.value.addEventListener('pause', () => {
+        isVideoPlaying.value = false
+      })
+    }
   })
   
   // 修改 onUnmounted
@@ -777,8 +791,8 @@
   // 修改 startProgressAnimation 函数 - 进度是假的，只用于UI展示
   const startProgressAnimation = (startFromProgress = 0) => {
     progress.value = startFromProgress
-    const totalDuration = 45000 // 45秒，约40-50秒的平均值
-    const totalSteps = 99 // 总共99步
+    const totalDuration = 300000 // 300秒，约40-50秒的平均值
+    const totalSteps = 95 // 总共95步
     const stepDuration = totalDuration / totalSteps
     const remainingSteps = totalSteps - startFromProgress
     const remainingDuration = (remainingSteps / totalSteps) * totalDuration
@@ -791,7 +805,7 @@
   
       if (progress.value < 99) {
         const increment = (deltaTime / remainingDuration) * remainingSteps
-        progress.value = Math.min(99, progress.value + increment)
+        progress.value = Math.min(95, progress.value + increment)
         progressInterval = requestAnimationFrame(animate)
       }
     }
@@ -856,6 +870,23 @@
   const getRandomPrompt = () => {
     const randomIndex = Math.floor(Math.random() * inspirationPrompts.length)
     prompt.value = inspirationPrompts[randomIndex]
+  }
+
+  // 在 script setup 部分添加以下代码
+  const previewVideo = ref<HTMLVideoElement | null>(null)
+  const isVideoPlaying = ref(true)
+
+  // 切换视频播放/暂停
+  const toggleVideoPlayPause = () => {
+    if (!previewVideo.value) return
+    
+    if (previewVideo.value.paused) {
+      previewVideo.value.play()
+      isVideoPlaying.value = true
+    } else {
+      previewVideo.value.pause()
+      isVideoPlaying.value = false
+    }
   }
   </script>
 

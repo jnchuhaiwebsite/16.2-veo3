@@ -11,7 +11,7 @@
       </div>
       
       <h1 class="text-3xl font-bold mb-8 text-white">Privacy Policy</h1>
-      <p class="text-gray-300 mb-8">Effective Date: June 25, 2025</p>
+      <p class="text-gray-300 mb-8">Effective Date: June 27, 2025</p>
       
       <div class="space-y-6 text-white">
         <section>

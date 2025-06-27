@@ -127,7 +127,7 @@ const mainFeatures = [
     description: "Choose between text-to-video or image-to-video generation.Upload one image (JPG/JPEG or PNG format, max 10MB), or create videos from text descriptions with unlimited creativity.",
     icon: CommandLineIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.mp4",
-    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.jpg",
+    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.jpg",
     points: [
       "Text-to-video generation",
       "Image-to-video conversion",
@@ -140,7 +140,7 @@ const mainFeatures = [
     description: "Generate professional videos with different quality settings using Veo3 AI's advanced technology. The AI maintains image details while creating smooth motion, delivering results suitable for commercial use.",
     icon: VideoCameraIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.mp4",
-    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.jpg",
+    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.jpg",
     points: [
       "HD video output",
       "Detail preservation",
