@@ -67,7 +67,7 @@ const steps = [
   },
   {
     title: "Download Your Video",
-    description: "In just 20-60 seconds, your professional video will be ready to download in high-quality MP4 format. Perfect for social media, marketing, presentations, or creative projects.",
+    description: "Your professional video will be swiftly processed and ready to download in high-quality MP4 format. Perfect for social media, marketing, presentations, or creative projects.",
     icon: ArrowDownTrayIcon
   }
 ];
