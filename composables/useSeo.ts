@@ -8,7 +8,7 @@ interface SeoOptions {
 }
 
 export const useSeo = (options: SeoOptions = {}) => {
-  const defaultTitle = 'Veo3: AI Video Generation with Realistic Sound'
+  const defaultTitle = 'Veo3-AI Video Generation with Realistic Sound'
   const defaultDescription = 'Veo3 - AI Video Generator with perfect audio synchronization. Create stunning videos with automated sound effects, dialogue, and ambient noise generation.'
   const defaultImage = '/img/veo3-og-image.jpg'
   const baseUrl = 'https://veo3.com'

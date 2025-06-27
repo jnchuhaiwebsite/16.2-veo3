@@ -3,7 +3,7 @@
       <!-- 标题区 -->
       <div class="mt-[64px] mb-10 flex flex-col items-center relative z-10">
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-[#f49d25] via-[#ffb347] to-[#ff8c42] bg-clip-text text-transparent drop-shadow-2xl tracking-tight animate-gradient-x">
-          Veo3: AI Video Generation with Realistic Sound
+          Veo3-AI Video Generation with Realistic Sound
         </h1>
         <p class="mt-4 text-base text-gray-200 text-center max-w-4xl font-medium">
           Professional AI-powered video creation tool for high-quality content generation and editing
