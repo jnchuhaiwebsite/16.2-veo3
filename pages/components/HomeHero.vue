@@ -94,6 +94,8 @@
                 <div class="text-center">
                   <p class="text-sm sm:text-base text-gray-300">Click to upload image</p>
                   <p class="text-xs sm:text-sm text-gray-500 mt-1">Supports JPG/JPEG/PNG format, up to 10MB</p>
+                  <p class="text-xs sm:text-sm text-gray-500 mt-1">Aspect Ratio: 16:9</p>
+
                 </div>
               </div>
               <div v-else class="relative w-full h-[200px] sm:h-[240px]">
