@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: 'Veo3: AI Video Generation with Realistic Sound',
+      title: 'Veo3 | AI Video Generator with Synchronized Audio & Visuals',
       htmlAttrs: {
         lang: 'en' // 设置 HTML 语言
       },
@@ -38,12 +38,12 @@ export default defineNuxtConfig({
         },
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Veo3: AI Video Generation with Realistic Sound' },
+        { property: 'og:title', content: 'Veo3-AI Video Generation with Realistic Sound' },
         { property: 'og:description', content: 'Create stunning videos with AI-powered sound synchronization. Transform your ideas into professional videos with perfect audio using Veo3.' },
         { property: 'og:image', content: '/img/veo3-og-image.jpg' },
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Veo3: AI Video Generation with Realistic Sound' },
+        { name: 'twitter:title', content: 'Veo3-AI Video Generation with Realistic Sound' },
         { name: 'twitter:description', content: 'Create professional videos with AI-powered sound synchronization. Transform your ideas into stunning videos with perfect audio using Veo3.' },
         { name: 'twitter:image', content: '/img/veo3-og-image.jpg' },
         // Keywords
