@@ -68,10 +68,7 @@ export default defineNuxtConfig({
     preset: 'cloudflare_pages',
     cloudflare: {
       deployConfig: true,
-      nodeCompat: true,
-      wrangler:{
-        name: 'veo3'
-      }
+      nodeCompat: true
     },
     devProxy: {
       '/nuxtRequest': {
