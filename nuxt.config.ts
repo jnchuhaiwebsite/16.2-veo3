@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: 'Veo3-AI Video Generation with Realistic Sound',
+      title: 'Veo3 | AI Video Generator with Synchronized Audio & Visuals',
       htmlAttrs: {
         lang: 'en' // 设置 HTML 语言
       },
