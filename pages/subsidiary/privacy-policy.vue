@@ -93,8 +93,8 @@ definePageMeta({
 })
 
 useSeo({
-  title: 'Animage AI | Privacy Policy',
-  description: 'Learn how Animage AI protects your data and privacy while using our AI image animator platform powered by advanced AI technology.'
+  title: 'veo3 AI | Privacy Policy',
+  description: 'Learn how veo3 AI protects your data and privacy while using our AI image animator platform powered by advanced AI technology.'
 })
 </script>
 

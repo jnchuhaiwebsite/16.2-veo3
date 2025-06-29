@@ -97,8 +97,8 @@ definePageMeta({
 })
 
 useSeo({
-  title: 'Animage AI | Terms of Service',
-  description: 'Read our terms of service for using Animage AI - the leading AI image animator platform powered by advanced AI technology.'
+  title: 'veo3 AI | Terms of Service',
+  description: 'Read our terms of service for using veo3 AI - the leading AI image animator platform powered by advanced AI technology.'
 })
 </script>
 

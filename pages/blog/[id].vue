@@ -284,19 +284,19 @@ const title = computed(() => {
 
 // Set page metadata
 useSeo({
-  title: `${title.value} - Animage AI Blog`,
+  title: `${title.value} - veo3 AI Blog`,
   description: metaDescription.value,
   type: 'article',
-  ogTitle: `${title.value} - Animage AI Blog`,
+  ogTitle: `${title.value} - veo3 AI Blog`,
   ogDescription: metaDescription.value,
-  twitterTitle: `${title.value} - Animage AI Blog`,
+  twitterTitle: `${title.value} - veo3 AI Blog`,
   twitterDescription: metaDescription.value,
   other: [
     { property: 'article:published_time', content: post.value?.created_time ? new Date(post.value.created_time * 1000).toISOString() : '' },
     { property: 'article:section', content: getCategoryLabel(post.value?.class_id || 0) },
     { property: 'article:tag', content: post.value?.keywords || 'AI video generation, text to video, image to video, video creation' },
-    { property: 'article:author', content: 'Animage AI Team' },
-    { property: 'article:publisher', content: 'Animage AI' }
+    { property: 'article:author', content: 'veo3 AI Team' },
+    { property: 'article:publisher', content: 'veo3 AI' }
   ]
 } as SeoOptions);
 
