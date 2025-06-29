@@ -48,8 +48,8 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: '/img/veo3-og-image.jpg' },
         // Keywords
         { name: 'keywords', content: 'Veo3, AI video generation, video creator, realistic sound, audio sync, sound effects' },
-        { name: 'author', content: 'Animage AI Team' },
-        { name: 'application-name', content: 'Animage AI' },
+        { name: 'author', content: 'veo3 AI Team' },
+        { name: 'application-name', content: 'veo3 AI' },
       ],
       script: [
         { src: '/js/c6h.js', async: true } 

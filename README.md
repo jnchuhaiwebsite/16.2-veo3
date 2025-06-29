@@ -1,6 +1,6 @@
-# Animage AI
+# veo3 AI
 
-Animage AI is a cutting-edge AI image animator platform that transforms static images into stunning animated videos using advanced AI technology. Upload any image and watch it come to life with smooth, natural animations.
+veo3 AI is a cutting-edge AI image animator platform that transforms static images into stunning animated videos using advanced AI technology. Upload any image and watch it come to life with smooth, natural animations.
 
 ## Key Features
 
@@ -59,4 +59,4 @@ yarn preview
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-© 2025 Animage AI - All rights reserved
+© 2025 veo3 AI - All rights reserved
