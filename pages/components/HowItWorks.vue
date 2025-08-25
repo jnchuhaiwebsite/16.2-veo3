@@ -6,7 +6,7 @@
           How Veo3 AI Works
         </h2>
         <p class="mt-4 text-xl text-gray-300 animate-slide-up">
-          Simple 4-step process to create stunning videos with Veo3 technology
+          Simple 4-step process to create stunning videos with Veo3 AI technology
         </p>
       </div>
 
@@ -52,12 +52,12 @@ import {
 const steps = [
   {
     title: "Choose Your Mode",
-    description: "Select between text-to-video or image-to-video generation. Upload one image (JPG/JPEG or PNG format, max 10MB), or describe your vision with text prompts.",
+    description: "With Veo3 AI, select between text-to-video or image-to-video generation. Upload one image (JPG/JPEG or PNG format, max 10MB), or describe your vision with text prompts.",
     icon: CommandLineIcon
   },
   {
     title: "Describe Your Vision",
-    description: "Add detailed descriptions of how you want your content to be animated. Be specific about motion, style, effects, and the overall video concept you want to achieve.",
+    description: "Add detailed descriptions of how you want your content to be animated. Be specific about motion, style, effects, and the overall veo3 video concept you want to achieve.",
     icon: PencilIcon
   },
   {
@@ -67,7 +67,7 @@ const steps = [
   },
   {
     title: "Download Your Video",
-    description: "Your professional video will be swiftly processed and ready to download in high-quality MP4 format. Perfect for social media, marketing, presentations, or creative projects.",
+    description: "Your professional veo3 video will be swiftly processed and ready to download in high-quality MP4 format. Perfect for social media, marketing, presentations, or creative projects.",
     icon: ArrowDownTrayIcon
   }
 ];

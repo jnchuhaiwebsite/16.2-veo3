@@ -6,7 +6,7 @@
           Veo3 AI Core Features
         </h2>
         <p class="mt-4 text-xl text-gray-300">
-          Revolutionary video generation capabilities powered by Veo3 technology
+          Revolutionary veo3 video generation capabilities powered by Veo3 AI technology
         </p>
       </div>
 
@@ -111,7 +111,7 @@ defineOptions({
 const mainFeatures = [
   {
     title: "Advanced Veo3 AI Technology",
-    description: "Veo3 AI leverages cutting-edge Veo3 technology to transform text descriptions and images into dynamic videos. Our AI understands context and creates natural, fluid animations with professional quality.",
+    description: "Veo3 AI leverages cutting-edge Veo3 technology to transform text descriptions and images into dynamic videos. Our Veo3 AI understands context and creates natural, fluid animations with professional quality.",
     icon: BoltIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-01.mp4",
     poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-01.jpg",
@@ -124,7 +124,7 @@ const mainFeatures = [
   },
   {
     title: "Dual Generation Modes",
-    description: "Choose between text-to-video or image-to-video generation.Upload one image (JPG/JPEG or PNG format, max 10MB), or create videos from text descriptions with unlimited creativity.",
+    description: "Choose between text-to-video or image-to-video generation.Upload one image (JPG/JPEG or PNG format, max 10MB), or create veo3 videos from text descriptions with unlimited creativity.",
     icon: CommandLineIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.mp4",
     poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.jpg",
@@ -137,7 +137,7 @@ const mainFeatures = [
   },
   {
     title: "High-Quality Video Output",
-    description: "Generate professional videos with different quality settings using Veo3 AI's advanced technology. The AI maintains image details while creating smooth motion, delivering results suitable for commercial use.",
+    description: "Generate professional videos with different quality settings using Veo3 AI's advanced technology. The Veo3 AI maintains image details while creating smooth motion, delivering results suitable for commercial use.",
     icon: VideoCameraIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.mp4",
     poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.jpg",

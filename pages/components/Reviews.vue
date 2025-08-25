@@ -3,10 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-          User Reviews
+          Veo3 AI User Reviews
         </h2>
         <p class="mt-4 text-lg text-gray-300">
-          Discover how Veo3 AI is revolutionizing video creation with Veo3 technology and exceptional cost-effectiveness
+          Discover how Veo3 AI is revolutionizing video creation with Veo3 AI technology and exceptional cost-effectiveness
         </p>
       </div>
 
@@ -21,7 +21,7 @@
             </div>
           </div>
           <p class="text-gray-300">
-            "It's crazy how #Veo3 delivers insane results in text-to-video 🤯🎬 And every time, the voice quality blows me away — smooth, natural, just wow 🔊🔥" - #Veo3
+            "It's crazy how #Veo3 delivers insane results in text-to-video 🤯🎬 And every time, the voice quality blows me away — smooth, natural, just wow 🔊🔥" - #Veo3 AI
           </p>
         </div>
 
@@ -35,7 +35,7 @@
             </div>
           </div>
           <p class="text-gray-300">
-            Veo3, prompt: "a person walks inside of an incredible futuristic city. The person comments out loud on what he sees, and what surprises him the most" #veo3
+            Veo3, prompt: "a person walks inside of an incredible futuristic city. The person comments out loud on what he sees, and what surprises him the most" #Veo3 AI
           </p>
         </div>
 
@@ -49,7 +49,7 @@
             </div>
           </div>
           <p class="text-gray-300">
-            #Veo3 further blurs the lines between reality and imagination with audio, stronger text adherence, and richer visual details.
+            #Veo3 AI further blurs the lines between reality and imagination with audio, stronger text adherence, and richer visual details.
           </p>
         </div>
       </div>
