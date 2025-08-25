@@ -8,10 +8,13 @@ interface SeoOptions {
 }
 
 export const useSeo = (options: SeoOptions = {}) => {
-  const defaultTitle = 'veo3 image to video Generator AI with Realistic Sound'
-  const defaultDescription = 'Veo3 - AI Video Generator with perfect audio synchronization. Create stunning videos with automated sound effects, dialogue, and ambient noise generation.'
-  const defaultImage = '/img/veo3-og-image.jpg'
-  const baseUrl = 'https://veo3.com'
+  const defaultTitle = 'veo 3 image to video Generator AI with Realistic Sound'
+  const defaultDescription = 'Veo 3 - AI Video Generator with perfect audio synchronization. Create stunning videos with automated sound effects, dialogue, and ambient noise generation.'
+   const baseUrl = 'https://vidveo3.com'
+  // const defaultImage = baseUrl + '/Veo_3_Video_Generator.webp'
+  const defaultImage = 'https://resp.vidveo3.com/vidveo/video/Veo_3_Video_Generator.webp'
+
+
 
   const title = options.title || defaultTitle
   const description = options.description || defaultDescription
@@ -66,7 +69,7 @@ export const useSeo = (options: SeoOptions = {}) => {
       // Keywords
       {
         name: 'keywords',
-        content: 'Veo3, AI video generation, video creator, realistic sound, audio sync, sound effects'
+        content: 'Veo 3, AI video generation, video creator, realistic sound, audio sync, sound effects'
       }
     ],
     link: [

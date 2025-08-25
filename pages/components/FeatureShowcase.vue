@@ -3,10 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-extrabold text-[#f49d25] sm:text-5xl">
-          Veo3 AI Core Features
+          Veo 3 AI Core Features
         </h2>
         <p class="mt-4 text-xl text-gray-300">
-          Revolutionary veo3 video generation capabilities powered by Veo3 AI technology
+          Revolutionary Veo 3 video generation capabilities powered by Veo 3 AI technology
         </p>
       </div>
 
@@ -110,13 +110,13 @@ defineOptions({
 // Main feature data with video demonstrations - keeping only 3 features
 const mainFeatures = [
   {
-    title: "Advanced Veo3 AI Technology",
-    description: "Veo3 AI leverages cutting-edge Veo3 technology to transform text descriptions and images into dynamic videos. Our Veo3 AI understands context and creates natural, fluid animations with professional quality.",
+    title: "Advanced Veo 3 AI Technology",
+    description: "Veo 3 AI leverages cutting-edge Veo 3 technology to transform text descriptions and images into dynamic videos. Our Veo 3 AI understands context and creates natural, fluid animations with professional quality.",
     icon: BoltIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-01.mp4",
     poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-01.jpg",
     points: [
-      "Veo3-powered video generation",
+      "Veo 3-powered video generation",
       "Natural motion and transitions",
       "Context-aware processing",
       "Professional output quality"
@@ -124,7 +124,7 @@ const mainFeatures = [
   },
   {
     title: "Dual Generation Modes",
-    description: "Choose between text-to-video or image-to-video generation.Upload one image (JPG/JPEG or PNG format, max 10MB), or create veo3 videos from text descriptions with unlimited creativity.",
+    description: "Choose between text-to-video or image-to-video generation.Upload one image (JPG/JPEG or PNG format, max 10MB), or create Veo 3 videos from text descriptions with unlimited creativity.",
     icon: CommandLineIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.mp4",
     poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.jpg",
@@ -137,7 +137,7 @@ const mainFeatures = [
   },
   {
     title: "High-Quality Video Output",
-    description: "Generate professional videos with different quality settings using Veo3 AI's advanced technology. The Veo3 AI maintains image details while creating smooth motion, delivering results suitable for commercial use.",
+    description: "Generate professional videos with different quality settings using Veo 3 AI's advanced technology. The Veo 3 AI maintains image details while creating smooth motion, delivering results suitable for commercial use.",
     icon: VideoCameraIcon,
     video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.mp4",
     poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.jpg",
@@ -166,7 +166,7 @@ const techFeatures = [
   },
   {
     title: "Fast Processing",
-    description: "Advanced Veo3 AI processing with 20-60 seconds generation time and high instruction response rate",
+    description: "Advanced Veo 3 AI processing with 20-60 seconds generation time and high instruction response rate",
     icon: ArrowPathIcon,
     specs: "20-60 seconds processing time"
   }

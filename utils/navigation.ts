@@ -7,18 +7,20 @@ export interface RouteItem {
   name: string
   icon?: string
   href?: string
+  title?: string
+  Anchor?: string
 }
 
 // 主路由配置
 export const mainRoutes: RouteItem[] = [
-  { id: "hero", name: "Home", icon: "home" },
+  { id: "hero", name: "Home", icon: "home", Anchor: "support@vidveo3.com" },
   { id: "how-it-works", name: "How It Works", icon: "steps" },
   { id: "features-showcase", name: "Features", icon: "star" },
   { id: "reviews", name: "Reviews", icon: "star" },
   { id: "pricing", name: "Pricing", icon: "tag" },
   { id: "faq", name: "FAQ", icon: "help" },
   // { id: "portfolio", name: "Portfolio", href: "/portfolio", icon: "image" },
-  { id: "blog", name: "Blog", href: "/blog", icon: "book" }
+  { id: "blog", name: "Blog", href: "/blog", title: "veo 3 AI - Blog", icon: "book" }
 ]
 
 export const useNavigation = () => {

@@ -1,7 +1,7 @@
 <template>
   <section id="faq" class="py-20 bg-blue-pale">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 id="faq-heading" class="text-3xl font-bold text-center mb-12 text-[#f49d25]">Veo3 and Veo3 AI Frequently Asked Questions</h2>
+      <h2 id="faq-heading" class="text-3xl font-bold text-center mb-12 text-[#f49d25]">Veo 3 AI Frequently Asked Questions</h2>
       
       <div class="space-y-4">
         <div 
@@ -71,16 +71,16 @@ defineOptions({
 // FAQ数据
 const faqs = [
   {
-    question: "What is Veo3 AI and how does it work?",
-    answer: "Veo3 AI is an advanced video generation platform powered by Veo3 technology. It offers two main modes: text-to-video generation where you describe your vision, and image-to-video conversion where you upload images to create dynamic videos."
+    question: "What is Veo 3 AI and how does it work?",
+    answer: "Veo 3 AI is an advanced video generation platform powered by Veo 3 technology. It offers two main modes: text-to-video generation where you describe your vision, and image-to-video conversion where you upload images to create dynamic videos."
   },
   {
     question: "What image formats are supported for image-to-video?",
-    answer: "Veo3 AI supports all major image formats including JPEG(JPG) and PNG. You can upload up to one images at once, each under 10MB, to create batch video content."
+    answer: "Veo 3 AI supports all major image formats including JPEG(JPG) and PNG. You can upload up to one images at once, each under 10MB, to create batch video content."
   },
   {
     question: "How long does it take to generate a video?",
-    answer: "The generation process typically takes 20-60 seconds, depending on the complexity of your input and the desired video effect. Veo3 technology ensures fast and efficient processing."
+    answer: "The generation process typically takes 20-60 seconds, depending on the complexity of your input and the desired video effect. Veo 3 technology ensures fast and efficient processing."
   },
   {
     question: "What type of content works best for text-to-video?",
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     question: "Can I customize the video style and effects?",
-    answer: "Yes, you can guide the video style through your prompt description. Specify the type of movement, speed, visual effects, and overall aesthetic you want to achieve. Veo3 AI understands context and creates accordingly."
+    answer: "Yes, you can guide the video style through your prompt description. Specify the type of movement, speed, visual effects, and overall aesthetic you want to achieve. Veo 3 AI understands context and creates accordingly."
   },
   // {
   //   question: "What video formats and quality are available?",

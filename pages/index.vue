@@ -91,8 +91,8 @@ onMounted(() => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Veo3 AI",
-    description: "Advanced video generation platform powered by Veo3 technology. Create stunning videos from text descriptions or transform images into dynamic video content. Support for multiple image formats and batch processing.",
+    name: "veo 3 AI",
+    description: "Advanced video generation platform powered by veo 3 technology. Create stunning videos from text descriptions or transform images into dynamic video content. Support for multiple image formats and batch processing.",
     applicationCategory: "VideoGenerationApplication",
     operatingSystem: "All",
     offers: {
@@ -101,7 +101,7 @@ onMounted(() => {
       priceCurrency: "USD",
     },
     featureList: [
-      "Veo3-powered video generation",
+      "veo 3-powered video generation",
       "Text-to-video conversion",
       "Image-to-video conversion",
       "Batch image processing",

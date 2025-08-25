@@ -3,10 +3,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-          Veo3 AI User Reviews
+          Veo 3 AI User Reviews
         </h2>
         <p class="mt-4 text-lg text-gray-300">
-          Discover how Veo3 AI is revolutionizing video creation with Veo3 AI technology and exceptional cost-effectiveness
+          Discover how Veo 3 AI is revolutionizing video creation with Veo 3 AI technology and exceptional cost-effectiveness
         </p>
       </div>
 
@@ -21,35 +21,35 @@
             </div>
           </div>
           <p class="text-gray-300">
-            "It's crazy how #Veo3 delivers insane results in text-to-video 🤯🎬 And every time, the voice quality blows me away — smooth, natural, just wow 🔊🔥" - #Veo3 AI
+            "It's crazy how #Veo 3 delivers insane results in text-to-video 🤯🎬 And every time, the voice quality blows me away — smooth, natural, just wow 🔊🔥" - #Veo 3 AI
           </p>
         </div>
 
         <!-- Testimonial 2 -->
         <div class="bg-gray-800 rounded-lg p-8 shadow-xl">
           <div class="mb-6">
-            <h4 class="text-lg font-bold text-white">Sarah Lee - Content Creator</h4>
+            <h3 class="text-lg font-bold text-white">Sarah Lee - Content Creator</h3>
             <p class="text-gray-400">San Francisco</p>
             <div class="flex items-center mt-2">
               <span class="text-yellow-400">★★★★★</span>
             </div>
           </div>
           <p class="text-gray-300">
-            Veo3, prompt: "a person walks inside of an incredible futuristic city. The person comments out loud on what he sees, and what surprises him the most" #Veo3 AI
+            Veo 3, prompt: "a person walks inside of an incredible futuristic city. The person comments out loud on what he sees, and what surprises him the most" #Veo 3 AI
           </p>
         </div>
 
         <!-- Testimonial 3 -->
         <div class="bg-gray-800 rounded-lg p-8 shadow-xl">
           <div class="mb-6">
-            <h4 class="text-lg font-bold text-white">Michael Wang - Post-Production Specialist</h4>
+            <h3 class="text-lg font-bold text-white">Michael Wang - Post-Production Specialist</h3>
             <p class="text-gray-400">Los Angeles</p>
             <div class="flex items-center mt-2">
               <span class="text-yellow-400">★★★★☆</span>
             </div>
           </div>
           <p class="text-gray-300">
-            #Veo3 AI further blurs the lines between reality and imagination with audio, stronger text adherence, and richer visual details.
+            #Veo 3 AI further blurs the lines between reality and imagination with audio, stronger text adherence, and richer visual details.
           </p>
         </div>
       </div>
@@ -81,13 +81,13 @@ const scrollToHero = () => {
 
 const reviews = [
   {
-    content: "Veo3 AI transformed my static product photos into engaging videos for our e-commerce site. The Veo3 technology delivers amazing quality in just minutes!",
+    content: "Veo 3 AI transformed my static product photos into engaging videos for our e-commerce site. The Veo 3 technology delivers amazing quality in just minutes!",
     author: "Sarah Chen",
     title: "E-commerce Manager",
     rating: 5
   },
   {
-    content: "As a digital artist, I love how Veo3 AI brings my illustrations to life. The text-to-video feature is incredible for creating unique content for social media.",
+    content: "As a digital artist, I love how Veo 3 AI brings my illustrations to life. The text-to-video feature is incredible for creating unique content for social media.",
     author: "Michael Rodriguez",
     title: "Digital Artist",
     rating: 5
@@ -99,7 +99,7 @@ const reviews = [
     rating: 5
   },
   {
-    content: "We use Veo3 AI for our educational content. It's amazing how the Veo3 technology can turn simple descriptions into dynamic animations that help students understand concepts better.",
+    content: "We use Veo 3 AI for our educational content. It's amazing how the Veo 3 technology can turn simple descriptions into dynamic animations that help students understand concepts better.",
     author: "Dr. James Wilson",
     title: "Educational Content Creator",
     rating: 5

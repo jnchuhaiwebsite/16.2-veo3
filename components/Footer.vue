@@ -27,7 +27,7 @@
         <div class="flex-1">
           <div class="flex flex-col items-start text-left">
             <div class="flex items-center gap-4 mb-4">
-              <img src="/logo.png" alt="veo3 AI - AI Image Animator Platform" loading="lazy" class="h-16 md:h-24">
+              <img src="/logo.png" alt="veo 3 AI - AI Image Animator Platform" loading="lazy" class="h-16 md:h-24">
               <p class="text-sm text-gray-400 max-w-xl">
                 veo3 revolutionizes your photos into captivating motion videos through cutting-edge AI animation technology, delivering Hollywood-grade visual effects in minutes.
               </p>
@@ -51,7 +51,7 @@
             <div class="text-[#f49d25] font-medium mb-4 text-sm md:text-lg">Navigation</div>
             <div class="flex flex-col gap-2 items-center sm:items-start">
               <template v-for="(section, index) in sections" :key="index">
-                <NuxtLink v-if="section.href" :to="section.href" 
+                <NuxtLink v-if="section.href" :to="section.href" :title="section.title" :Anchor="section.Anchor"
                   class="text-gray-400 hover:text-[#f49d25] transition-colors flex items-center gap-2 justify-center sm:justify-start">
                   <span>{{ section.name }}</span>
                 </NuxtLink>
