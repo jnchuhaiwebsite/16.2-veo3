@@ -6,10 +6,10 @@
           Veo3 AI Video Generator with Sound
         </h1>
         <p class="mt-4 text-base text-gray-200 text-center max-w-4xl font-medium">
-          Professional AI-powered video creation tool for high-quality content generation and editing
+          Professional Veo3 AI-powered video creation tool for high-quality content generation and editing
         </p>
         <p class="mt-2 text-base text-gray-200 text-center max-w-4xl font-medium">
-          Create stunning videos with perfect audio sync
+          Create stunning videos with perfect audio sync using our Veo3 AI
         </p>
       </div>
 
@@ -33,7 +33,7 @@
               v-model="prompt"
               maxlength="2000"
               class="w-full rounded-lg bg-[#111111] border border-gray-700 text-gray-200 px-2 py-1.5 focus:ring-2 focus:ring-[#f49d25] focus:border-transparent transition placeholder-gray-500 text-sm lg:text-base h-32 resize-none" 
-              placeholder="Describe the video you want to generate..."
+              placeholder="Describe the video you want our Veo3 AI to generate..."
               @click="handleAction('prompt')"
             ></textarea>
             <div class="flex justify-between items-center mt-1">
@@ -229,7 +229,7 @@
                   </button>
                 </div>
                 <div class="absolute top-3 sm:top-4 left-1/2 transform -translate-x-1/2 text-[#f49d25] px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg text-sm sm:text-base font-semibold shadow-lg pointer-events-none select-none whitespace-nowrap z-10">
-                  AI Video Generation Demo
+                  Veo3 AI Video Generation Demo
                 </div>
               </div>
               <!-- 结果视频 -->
