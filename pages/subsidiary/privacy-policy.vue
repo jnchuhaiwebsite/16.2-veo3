@@ -76,7 +76,7 @@
         </section>
 
         <section class="mt-8">
-          <p class="text-sm">Last updated: {{ new Date().toLocaleDateString() }}</p>
+          <p class="text-sm">Last updated: June 27, 2025</p>
         </section>
       </div>
     </div>
