@@ -56,6 +56,13 @@
                 <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-1">
                   Prompt
                 </label>
+                <!-- <button 
+                  @click="simulateVideoCompletion"
+                  class="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-[#00b8ff]/10 hover:bg-[#00b8ff]/20 text-[#00b8ff] rounded-md transition-colors border border-[#00b8ff]/20 hover:border-[#00b8ff]/40"
+                >
+                  <ArrowPathIcon class="h-3.5 w-3.5" />
+                  <span>Demo Video</span>
+                </button> -->
               </div>
               <textarea 
                 v-model="prompt"
@@ -69,19 +76,36 @@
                   : 'Describe the video you want our Veo 3 AI to generate...'"
                 @click="handleAction('prompt')"
               ></textarea>
-              <div class="flex justify-between items-center mt-1">
-                <div class="flex items-center gap-2">
-                  <p class="text-xs text-gray-400">Be detailed and specific about what you want to see in the Veo 3 video.</p>
-                  <button 
-                    @click="getRandomPrompt"
-                    class="flex items-center gap-1 px-2 py-1 text-xs bg-[#f49d25]/10 hover:bg-[#f49d25]/20 text-[#f49d25] rounded-md transition-colors"
-                  >
-                    <SparklesIcon class="h-3.5 w-3.5" />
-                    <span>Inspiration</span>
-                  </button>
-                </div>
-                <span class="text-xs text-gray-400">{{ prompt.length }}/2000</span>
-              </div>
+               <div class="flex justify-between items-center mt-1">
+                 <div class="flex items-center gap-2">
+                   <p class="text-xs text-gray-400">Be detailed and specific about what you want to see in the Veo 3 video.</p>
+                 </div>
+                 <span class="text-xs text-gray-400">{{ prompt.length }}/2000</span>
+               </div>
+               
+               <!-- Inspiration卡片选择 -->
+               <div v-if="activeTab === 'text'" class="mt-3">
+                 <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
+                   Get Inspiration
+                 </label>
+                 <div class="grid grid-cols-3 gap-3">
+                   <button
+                     v-for="(promptItem, index) in inspirationPrompts" 
+                     :key="index"
+                     @click="selectInspirationPrompt(promptItem.text)"
+                     :class="[
+                       'flex flex-col items-center justify-center gap-2 py-4 px-4 rounded-lg border-2 transition-all duration-200',
+                       prompt.value === promptItem.text
+                         ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
+                         : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
+                     ]"
+                   >
+                     <div class="text-center">
+                       <div class="text-sm font-semibold">{{ promptItem.name }}</div>
+                     </div>
+                   </button>
+                 </div>
+               </div>
             </div>
 
             <!-- 图片上传区域（仅在图生视频选项卡显示） -->
@@ -89,7 +113,7 @@
               <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
                 Upload Image
               </label>
-              <div class="w-full border-2 border-dashed border-gray-700 rounded-lg p-3 hover:border-[#f49d25] transition-colors cursor-pointer mb-3 relative bg-[#111111]">
+              <div class="w-full border-2 border-dashed border-gray-700 rounded-lg p-2 hover:border-[#f49d25] transition-colors cursor-pointer mb-3 relative bg-[#111111]">
                 
                 <input 
                   type="file" 
@@ -100,21 +124,20 @@
                 />
                 <div 
                   v-if="selectedImage === null" 
-                  class="flex flex-col items-center justify-center gap-1.5 py-4 sm:py-6"
+                  class="flex flex-col items-center justify-center gap-1 py-3 sm:py-4"
                   @click="handleImageUploadClick"
                 >
-                  <ArrowUpOnSquareIcon class="h-8 w-8 text-gray-400" />
+                  <ArrowUpOnSquareIcon class="h-6 w-6 text-gray-400" />
                   <div class="text-center">
-                    <p class="text-sm sm:text-base text-gray-300">Click to upload image</p>
-                    <p class="text-xs sm:text-sm text-gray-500 mt-1">Supports JPG/JPEG/PNG format, up to 10MB</p>
-                    <p class="text-xs sm:text-sm text-gray-500 mt-1">Aspect Ratio: 16:9</p>
+                    <p class="text-sm text-gray-300">Click to upload image</p>
+                    <p class="text-xs text-gray-500 mt-1">Supports JPG/JPEG/PNG format, up to 10MB</p>
 
                   </div>
                 </div>
-                <div v-else class="relative w-full h-[200px] sm:h-[240px]">
+                <div v-else class="relative w-full h-[160px] sm:h-[180px] overflow-hidden">
                   <img 
                     :src="imagePreview" 
-                    class="w-full h-full object-contain rounded-lg"
+                    class="w-full h-full object-contain rounded-lg max-h-full"
                     alt="Preview"
                   />
                   <button 
@@ -127,73 +150,34 @@
               </div>
             </div>
 
-            <!-- 模型选择 -->
-            <div>
-              <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
-                Model Selection
-              </label>
-              <div class="grid grid-cols-2 gap-3">
-                <button
-                  @click="isFastMode = false"
-                  :class="[
-                    'flex flex-col items-center justify-center gap-2 py-4 px-4 rounded-lg border-2 transition-all duration-200',
-                    !isFastMode
-                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
-                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
-                  ]"
+            <!-- 模型选择和尺寸选择 -->
+            <div class="grid grid-cols-2 gap-3">
+              <!-- 模型选择 -->
+              <div>
+                <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
+                  Model Selection
+                </label>
+                <select 
+                  v-model="isFastMode"
+                  class="w-full rounded-lg bg-[#111111] border border-gray-700 text-gray-200 px-3 py-2 focus:ring-2 focus:ring-[#f49d25] focus:border-transparent transition text-sm lg:text-base"
                 >
-                  <div class="text-center">
-                    <div class="text-sm font-semibold">Veo 3</div>
-                    <div class="text-xs opacity-75">Standard Quality</div>
-                  </div>
-                </button>
-                <button
-                  @click="isFastMode = true"
-                  :class="[
-                    'flex flex-col items-center justify-center gap-2 py-4 px-4 rounded-lg border-2 transition-all duration-200',
-                    isFastMode
-                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
-                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
-                  ]"
-                >
-                  <div class="text-center">
-                    <div class="text-sm font-semibold">Veo 3 Fast</div>
-                    <div class="text-xs opacity-75">Fast Generation</div>
-                  </div>
-                </button>
+                  <option :value="false" class="bg-[#111111] text-gray-200">Veo 3 - Standard Quality</option>
+                  <option :value="true" class="bg-[#111111] text-gray-200">Veo 3 Fast - Fast Generation</option>
+                </select>
               </div>
-            </div>
 
-            <!-- 尺寸选择 -->
-            <div>
-              <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
-                Video Size
-              </label>
-              <div class="grid grid-cols-2 gap-3">
-                <button
-                  @click="selectedSize = '16:9'"
-                  :class="[
-                    'flex items-center justify-center gap-2 py-3 px-4 rounded-lg border-2 transition-all duration-200',
-                    selectedSize === '16:9'
-                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
-                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
-                  ]"
+              <!-- 尺寸选择 -->
+              <div>
+                <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
+                  Video Size
+                </label>
+                <select 
+                  v-model="selectedSize"
+                  class="w-full rounded-lg bg-[#111111] border border-gray-700 text-gray-200 px-3 py-2 focus:ring-2 focus:ring-[#f49d25] focus:border-transparent transition text-sm lg:text-base"
                 >
-                  <div class="w-8 h-4.5 bg-current rounded-sm"></div>
-                  <span class="text-sm font-medium">16:9 (Landscape)</span>
-                </button>
-                <button
-                  @click="selectedSize = '9:16'"
-                  :class="[
-                    'flex items-center justify-center gap-2 py-3 px-4 rounded-lg border-2 transition-all duration-200',
-                    selectedSize === '9:16'
-                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
-                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
-                  ]"
-                >
-                  <div class="w-4.5 h-8 bg-current rounded-sm"></div>
-                  <span class="text-sm font-medium">9:16 (Portrait)</span>
-                </button>
+                  <option value="16:9" class="bg-[#111111] text-gray-200">16:9 (Landscape)</option>
+                  <option value="9:16" class="bg-[#111111] text-gray-200">9:16 (Portrait)</option>
+                </select>
               </div>
             </div>
           </div>
@@ -210,12 +194,7 @@
           </button>
         </div>
         <!-- 右侧视频预览 -->
-        <div :class="[
-          'w-full mx-auto lg:mx-0 lg:w-[50%] max-w-[576px] lg:max-w-none flex flex-col items-center p-2 sm:p-3 lg:p-4 xl:p-6 bg-[#1a1a1a] backdrop-blur-sm rounded-2xl shadow-2xl border border-[#8a8c90]/30',
-          containerHeight.base.replace('min-', ''),
-          containerHeight.sm.replace('sm:min-', 'sm:'),
-          containerHeight.lg.replace('lg:min-', 'lg:')
-        ]">
+        <div class="w-full mx-auto lg:mx-0 lg:w-[50%] max-w-[576px] lg:max-w-none flex flex-col items-center p-2 sm:p-3 lg:p-4 xl:p-6 bg-[#1a1a1a] backdrop-blur-sm rounded-2xl shadow-2xl border border-[#8a8c90]/30 h-[630px]">
           <div class="flex flex-col justify-center items-center w-full h-full bg-gradient-to-br from-[#1a1a1a]/10 via-[#ffb347]/8 to-[#ff8c42]/10 rounded-[16px]">
             <div class="relative w-full h-[480px] flex items-center justify-center">
               <!-- 进度条 -->
@@ -299,6 +278,30 @@
               </div>
               <!-- 结果视频 -->
               <div v-else-if="generatedVideoUrl" class="w-full h-full relative">
+                <!-- 上方控制区域 - 左右分布 -->
+                <div class="flex justify-between items-center mb-4">
+                  <!-- 左侧提示文本 -->
+                  <div class="bg-[#f49d25] text-black px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg flex items-center justify-center gap-1.5 whitespace-nowrap">
+                    <span>Video has been generated, visit</span>
+                    <NuxtLink to="/profile" class="text-black hover:text-gray-800 transition-colors font-semibold">
+                      profile-My Works
+                    </NuxtLink>
+                    <span>to view</span>
+                  </div>
+                  
+                  <!-- 右侧下载按钮 -->
+                  <button 
+                    @click="handleDownload"
+                    class="bg-[#f49d25] hover:bg-[#f49d25]/80 text-black px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg flex items-center gap-1.5 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    :disabled="isDownloading"
+                  >
+                    <ArrowDownTrayIcon v-if="!isDownloading" class="w-4 h-4" />
+                    <ArrowPathIcon v-else class="w-4 h-4 animate-spin" />
+                    {{ isDownloading ? 'Downloading...' : 'Download Video' }}
+                  </button>
+                </div>
+                
+                <!-- 视频播放器 -->
                 <video 
                   :src="generatedVideoUrl" 
                   class="w-full h-full object-contain rounded-xl" 
@@ -309,23 +312,6 @@
                   preload="none"
                   @loadeddata="videoLoading = false"
                 ></video>
-                <button 
-                  @click="handleDownload"
-                  class="absolute top-0 right-0 bg-black/60 text-[#f49d25] px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg flex items-center gap-1.5 transition-all duration-300 hover:bg-black/70 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-sm hover:shadow-[#f49d25]"
-                  :disabled="isDownloading"
-                >
-                  <ArrowDownTrayIcon v-if="!isDownloading" class="w-4 h-4" />
-                  <ArrowPathIcon v-else class="w-4 h-4 animate-spin" />
-                  {{ isDownloading ? 'Downloading...' : 'Download' }}
-                </button>
-                <!-- 添加提示文本 -->
-                <div class="absolute top-0 left-0 bg-[#f49d25] text-black px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg flex items-center justify-center gap-1.5 whitespace-nowrap">
-                  <span>Video has been generated, visit</span>
-                  <NuxtLink to="/profile" class="text-black hover:text-gray-800 transition-colors font-semibold">
-                    profile-My Works
-                  </NuxtLink>
-                  <span>to view</span>
-                </div>
               </div>
               <!-- 视频加载中 -->
               <div v-else class="absolute inset-0 flex items-center justify-center">
@@ -974,16 +960,40 @@
 
   // 灵感提示词列表
   const inspirationPrompts = [
-    "A close up in a smooth, slow pan focuses intently on diced onions hitting a scorching hot pan, instantly creating a dramatic sizzle. Audio: distinct sizzle.",
-    "In rural Ireland, circa 1860s, two women, their long, modest dresses of homespun fabric whipping gently in the strong coastal wind, walk with determined strides across a windswept cliff top. The ground is carpeted with hardy wildflowers in muted hues. They move steadily towards the precipitous edge, where the vast, turbulent grey-green ocean roars and crashes against the sheer rock face far below, sending plumes of white spray into the air.",
-    "A woman, classical violinist with intense focus plays a complex, rapid passage from a Vivaldi concerto in an ornate, sunlit baroque hall during a rehearsal. Their bow dances across the strings with virtuosic speed and precision. Audio: Bright, virtuosic violin playing, resonant acoustics of the hall, distant footsteps of crew, conductor's occasional soft count-in (muffled), rustling sheet music.",
+    {
+      name: "Visual Storyboards",
+      text: "A close up in a smooth, slow pan focuses intently on diced onions hitting a scorching hot pan, instantly creating a dramatic sizzle. Audio: distinct sizzle."
+    },
+    {
+      name: "Scene Descriptions", 
+      text: "In rural Ireland, circa 1860s, two women, their long, modest dresses of homespun fabric whipping gently in the strong coastal wind, walk with determined strides across a windswept cliff top. The ground is carpeted with hardy wildflowers in muted hues. They move steadily towards the precipitous edge, where the vast, turbulent grey-green ocean roars and crashes against the sheer rock face far below, sending plumes of white spray into the air."
+    },
+    {
+      name: "Cinematic Moments",
+      text: "A woman, classical violinist with intense focus plays a complex, rapid passage from a Vivaldi concerto in an ornate, sunlit baroque hall during a rehearsal. Their bow dances across the strings with virtuosic speed and precision. Audio: Bright, virtuosic violin playing, resonant acoustics of the hall, distant footsteps of crew, conductor's occasional soft count-in (muffled), rustling sheet music."
+    }
   ]
 
   // 随机获取灵感提示词
   const getRandomPrompt = () => {
     const randomIndex = Math.floor(Math.random() * inspirationPrompts.length)
-    prompt.value = inspirationPrompts[randomIndex]
+    prompt.value = inspirationPrompts[randomIndex].text
   }
+
+  // 选择灵感提示词
+  const selectInspirationPrompt = (promptText: string) => {
+    prompt.value = promptText
+  }
+
+  // 模拟视频生成完成
+  const simulateVideoCompletion = () => {
+    // 使用提供的模拟视频地址
+    generatedVideoUrl.value = 'https://resp.vidveo3.com/vidveo/202508/25/a87efbfa-6dc8-45ed-821c-873c0e9ea839.mp4';
+    videoLoading.value = false; // 模拟视频加载完成
+    isGenerating.value = false; // 停止生成状态
+    progress.value = 100; // 设置进度为100%
+    $toast.success('Simulated video generation completed!');
+  };
 
   // 在 script setup 部分添加以下代码
   const previewVideo = ref<HTMLVideoElement | null>(null)
