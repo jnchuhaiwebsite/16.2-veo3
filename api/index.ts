@@ -4,7 +4,7 @@ import { useRuntimeConfig } from 'nuxt/app'
 // console.log('当前环境:', process.env.NODE_ENV);
 
 const baseUrl = process.env.NODE_ENV === 'development'
-  ? 'http://192.168.0.55:8686'
+  ? 'https://art.vidveo3.com'
   : 'https://art.vidveo3.com';
 
 // const baseUrl = 'https://art.vidveo3.com';
@@ -15,8 +15,8 @@ const baseUrl = process.env.NODE_ENV === 'development'
 export const urlList = {
   setUserInfo: baseUrl + '/api/user/auth',        // 设置用户信息
   getCurrentUser: baseUrl + '/api/user/info',   // 获取当前用户信息
-  createTasksImgVideo: baseUrl + '/api/task/veo3/make_video',     // 创建任务-图生视频
-  createTasksTextVideo: baseUrl + '/api/task/veo3/make_video',     // 创建任务-文生视频
+  createTasksImgVideo: baseUrl + '/api/task/veo3video/create',     // 创建任务-图生视频
+  createTasksTextVideo: baseUrl + '/api/task/veo3video/create',     // 创建任务-文生视频
   getSubPlans: baseUrl + '/api/website/priceList',     // 获取套餐信息
   getSubplansTest: baseUrl + '/api/website/odl',     // 获取测试套餐信息
   payOrder: baseUrl + '/api/pay/paypal',  // 支付
@@ -29,7 +29,7 @@ export const urlList = {
   upload: baseUrl + '/api/common/upload', // 上传图片获取url
   getTimesLog: baseUrl + '/api/user/times_log', // 获取使用次数日志、消费记录
 
-  loginAuth: baseUrl + '/api/user/login_auth', // 登录认证
+  loginAuth: baseUrl + (process.env.NODE_ENV === 'development' ? '/api/user/auth' : '/api/user/login_auth'), // 登录认证
   blogCategoryList: baseUrl + '/api/cms/blogCategoryList', // 获取博客分类列表
   blogList: baseUrl + '/api/cms/blogList', // 获取博客列表
 }
@@ -41,6 +41,7 @@ export const urlList = {
  */
 export const setUserInfo = async (data: any) => {
   try {
+ 
     // 如果已有有效Token，直接返回缓存的用户信息
     const token = getValidToken();
     if (token) {
@@ -130,7 +131,7 @@ export const createTaskTextVideo = async (data: any) => {
  * @returns 套餐列表
  */
 export const getSubPlans = async () => {
-  return apiRequest(urlList.getSubPlans, 'GET', undefined, false);
+  return apiRequest(urlList.getSubPlans+'?type=1', 'GET', undefined, false);
 }
 /**
  * 获取套餐信息-测试

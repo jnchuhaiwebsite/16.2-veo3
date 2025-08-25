@@ -8,8 +8,8 @@
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <div class="flex items-center gap-2">
-            <NuxtLink to="/">
-              <img src="/logo.png" alt="veo3 AI - AI Image Animator Platform" class="h-12 lg:h-16" loading="lazy" />
+            <NuxtLink to="/" title="veo 3 AI - AI Image Animator Platform" Anchor="support@vidveo3.com">
+              <img src="/logo.png" alt="veo 3 AI - AI Image Animator Platform" class="h-12 lg:h-16" loading="lazy" />
             </NuxtLink>
           </div>
 

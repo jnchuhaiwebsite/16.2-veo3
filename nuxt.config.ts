@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: 'Veo3 | AI Video Generator with Synchronized Audio & Visuals',
+      title: 'veo 3 | AI Video Generator with Synchronized Audio & Visuals',
       htmlAttrs: {
         lang: 'en' // 设置 HTML 语言
       },
@@ -34,29 +34,29 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: 'Veo3 - AI Video Generator with perfect audio synchronization. Create stunning videos with automated sound effects, dialogue, and ambient noise generation.'
+          content: 'veo 3 - AI Video Generator with perfect audio synchronization. Create stunning videos with automated sound effects, dialogue, and ambient noise generation.'
         },
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Veo3-AI Video Generation with Realistic Sound' },
-        { property: 'og:description', content: 'Create stunning videos with AI-powered sound synchronization. Transform your ideas into professional videos with perfect audio using Veo3.' },
-        { property: 'og:image', content: '/img/veo3-og-image.jpg' },
+        { property: 'og:title', content: 'veo 3-AI Video Generation with Realistic Sound' },
+        { property: 'og:description', content: 'Create stunning videos with AI-powered sound synchronization. Transform your ideas into professional videos with perfect audio using veo 3.' },
+        { property: 'og:image', content: 'https://resp.vidveo3.com/vidveo/video/Veo_3_Video_Generator.webp' },
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Veo3-AI Video Generation with Realistic Sound' },
-        { name: 'twitter:description', content: 'Create professional videos with AI-powered sound synchronization. Transform your ideas into stunning videos with perfect audio using Veo3.' },
-        { name: 'twitter:image', content: '/img/veo3-og-image.jpg' },
+        { name: 'twitter:title', content: 'veo 3 - AI Video Generation with Realistic Sound' },
+        { name: 'twitter:description', content: 'Create professional videos with AI-powered sound synchronization. Transform your ideas into stunning videos with perfect audio using veo 3.' },
+        { name: 'twitter:image', content: 'https://resp.vidveo3.com/vidveo/video/Veo_3_Video_Generator.webp' },
         // Keywords
-        { name: 'keywords', content: 'Veo3, AI video generation, video creator, realistic sound, audio sync, sound effects' },
-        { name: 'author', content: 'veo3 AI Team' },
-        { name: 'application-name', content: 'veo3 AI' },
+        { name: 'keywords', content: 'Veo 3, AI video generation, video creator, realistic sound, audio sync, sound effects' },
+        { name: 'author', content: 'veo 3 AI Team' },
+        { name: 'application-name', content: 'veo 3 AI' },
       ],
       script: [
         { src: '/js/c6h.js', async: true } 
       ], // 外部脚本
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://veo3.com' }
+        { rel: 'canonical', href: 'https://vidveo3.com' }
       ]
     }
   },

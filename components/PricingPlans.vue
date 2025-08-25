@@ -5,15 +5,15 @@
   >
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-gray-300 text-center text-lg mb-2 font-medium">
-        Choose Your Veo3 AI Plan
+        Choose Your veo 3 AI Plan
       </div>
       <h2
         class="text-white text-center text-4xl font-bold mb-4 font-medium"
       >
-        Veo3 AI Simple, Transparent Pricing
+        veo 3 AI Simple, Transparent Pricing
       </h2>
       <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-        Select the Veo3 AI plan that best fits your needs, upgrade or downgrade anytime
+        Select the veo 3 AI plan that best fits your needs, upgrade or downgrade anytime
       </p>
 
       <!-- 加载状态 -->

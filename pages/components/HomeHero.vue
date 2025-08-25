@@ -3,13 +3,13 @@
       <!-- 标题区 -->
       <div class="mt-[64px] mb-10 flex flex-col items-center relative z-10">
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-[#f49d25] via-[#ffb347] to-[#ff8c42] bg-clip-text text-transparent drop-shadow-2xl tracking-tight animate-gradient-x">
-          Veo3 AI Video Generator with Sound
+          Veo 3 AI Video Generator with Sound
         </h1>
         <p class="mt-4 text-base text-gray-200 text-center max-w-4xl font-medium">
-          Professional Veo3 AI-powered video creation tool for high-quality content generation and editing
+          Professional Veo 3 AI-powered video creation tool for high-quality content generation and editing
         </p>
         <p class="mt-2 text-base text-gray-200 text-center max-w-4xl font-medium">
-          Create stunning videos with perfect audio sync using our Veo3 AI
+          Create stunning videos with perfect audio sync using our Veo 3 AI
         </p>
       </div>
 
@@ -22,116 +22,181 @@
           containerHeight.sm,
           containerHeight.lg
         ]">
-          <!-- 提示词输入框 -->
-          <div>
-            <div class="flex items-center justify-between">
-              <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-1">
-                Prompt
-              </label>
-            </div>
-            <textarea 
-              v-model="prompt"
-              maxlength="2000"
-              class="w-full rounded-lg bg-[#111111] border border-gray-700 text-gray-200 px-2 py-1.5 focus:ring-2 focus:ring-[#f49d25] focus:border-transparent transition placeholder-gray-500 text-sm lg:text-base h-32 resize-none" 
-              placeholder="Describe the video you want our Veo3 AI to generate..."
-              @click="handleAction('prompt')"
-            ></textarea>
-            <div class="flex justify-between items-center mt-1">
-              <div class="flex items-center gap-2">
-                <p class="text-xs text-gray-400">Be detailed and specific about what you want to see in the veo3 video.</p>
-                <button 
-                  @click="getRandomPrompt"
-                  class="flex items-center gap-1 px-2 py-1 text-xs bg-[#f49d25]/10 hover:bg-[#f49d25]/20 text-[#f49d25] rounded-md transition-colors"
-                >
-                  <SparklesIcon class="h-3.5 w-3.5" />
-                  <span>Inspiration</span>
-                </button>
-              </div>
-              <span class="text-xs text-gray-400">{{ prompt.length }}/2000</span>
-            </div>
+          <!-- 选项卡导航 -->
+          <div class="flex bg-[#111111] rounded-lg p-1 mb-4">
+            <button
+              @click="activeTab = 'text'"
+              :class="[
+                'flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all duration-200',
+                activeTab === 'text'
+                  ? 'bg-[#f49d25] text-black shadow-lg'
+                  : 'text-gray-400 hover:text-gray-300 hover:bg-[#1a1a1a]'
+              ]"
+            >
+              Text to Video
+            </button>
+            <button
+              @click="activeTab = 'image'"
+              :class="[
+                'flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all duration-200',
+                activeTab === 'image'
+                  ? 'bg-[#f49d25] text-black shadow-lg'
+                  : 'text-gray-400 hover:text-gray-300 hover:bg-[#1a1a1a]'
+              ]"
+            >
+              Image to Video
+            </button>
           </div>
 
-          <!-- 生成模式开关 -->
-          <div class="flex items-center gap-4">
-            <div class="flex items-center justify-between w-full bg-[#111111] rounded-lg px-3 py-2">
-              <div class="flex items-center">
-                <label class="text-xs text-gray-400 mr-2">Fast Generation</label>
-                <div class="group relative">
-                  <InformationCircleIcon class="h-4 w-4 text-gray-400 cursor-help" />
-                  <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1.5 bg-[#f49d25] text-black text-xs rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-10">
-                    Fast generation mode only supports text-to-video generation.
+          <!-- 通用表单内容 -->
+          <div class="space-y-4">
+            <!-- 提示词输入框 -->
+            <div>
+              <div class="flex items-center justify-between">
+                <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-1">
+                  Prompt
+                </label>
+              </div>
+              <textarea 
+                v-model="prompt"
+                maxlength="2000"
+                :class="[
+                  'w-full rounded-lg bg-[#111111] border border-gray-700 text-gray-200 px-2 py-1.5 focus:ring-2 focus:ring-[#f49d25] focus:border-transparent transition placeholder-gray-500 text-sm lg:text-base h-32 resize-none',
+                  activeTab === 'image' ? 'placeholder-gray-500' : 'placeholder-gray-500'
+                ]"
+                :placeholder="activeTab === 'image' 
+                  ? 'Describe the video you want our Veo 3 AI to generate based on the image...'
+                  : 'Describe the video you want our Veo 3 AI to generate...'"
+                @click="handleAction('prompt')"
+              ></textarea>
+              <div class="flex justify-between items-center mt-1">
+                <div class="flex items-center gap-2">
+                  <p class="text-xs text-gray-400">Be detailed and specific about what you want to see in the Veo 3 video.</p>
+                  <button 
+                    @click="getRandomPrompt"
+                    class="flex items-center gap-1 px-2 py-1 text-xs bg-[#f49d25]/10 hover:bg-[#f49d25]/20 text-[#f49d25] rounded-md transition-colors"
+                  >
+                    <SparklesIcon class="h-3.5 w-3.5" />
+                    <span>Inspiration</span>
+                  </button>
+                </div>
+                <span class="text-xs text-gray-400">{{ prompt.length }}/2000</span>
+              </div>
+            </div>
+
+            <!-- 图片上传区域（仅在图生视频选项卡显示） -->
+            <div v-if="activeTab === 'image'">
+              <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
+                Upload Image
+              </label>
+              <div class="w-full border-2 border-dashed border-gray-700 rounded-lg p-3 hover:border-[#f49d25] transition-colors cursor-pointer mb-3 relative bg-[#111111]">
+                
+                <input 
+                  type="file" 
+                  accept=".jpg,.jpeg,.png"
+                  class="hidden" 
+                  ref="fileInput"
+                  @change="handleImageUpload"
+                />
+                <div 
+                  v-if="selectedImage === null" 
+                  class="flex flex-col items-center justify-center gap-1.5 py-4 sm:py-6"
+                  @click="handleImageUploadClick"
+                >
+                  <ArrowUpOnSquareIcon class="h-8 w-8 text-gray-400" />
+                  <div class="text-center">
+                    <p class="text-sm sm:text-base text-gray-300">Click to upload image</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1">Supports JPG/JPEG/PNG format, up to 10MB</p>
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1">Aspect Ratio: 16:9</p>
+
                   </div>
                 </div>
-              </div>
-              <!-- 开关按钮 -->
-              <label class="inline-flex items-center cursor-pointer">
-                <input type="checkbox" v-model="isFastMode" class="sr-only peer">
-                <div class="relative w-9 h-5 bg-gray-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-[#f49d25] rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#f49d25]"></div>
-              </label>
-            </div>
-          </div>
-
-          <!-- 图片上传区域 - 只在非快速模式下显示 -->
-          <div v-if="!isFastMode">
-            <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
-              Upload Image (Optional)
-            </label>
-            <div class="w-full border-2 border-dashed border-gray-700 rounded-lg p-3 hover:border-[#f49d25] transition-colors cursor-pointer mb-3 relative bg-[#111111]">
-              
-              <input 
-                type="file" 
-                accept=".jpg,.jpeg,.png"
-                class="hidden" 
-                ref="fileInput"
-                @change="handleImageUpload"
-              />
-              <div 
-                v-if="selectedImage === null" 
-                class="flex flex-col items-center justify-center gap-1.5 py-4 sm:py-6"
-                @click="handleImageUploadClick"
-              >
-                <ArrowUpOnSquareIcon class="h-8 w-8 text-gray-400" />
-                <div class="text-center">
-                  <p class="text-sm sm:text-base text-gray-300">Click to upload image</p>
-                  <p class="text-xs sm:text-sm text-gray-500 mt-1">Supports JPG/JPEG/PNG format, up to 10MB</p>
-                  <p class="text-xs sm:text-sm text-gray-500 mt-1">Aspect Ratio: 16:9</p>
-
+                <div v-else class="relative w-full h-[200px] sm:h-[240px]">
+                  <img 
+                    :src="imagePreview" 
+                    class="w-full h-full object-contain rounded-lg"
+                    alt="Preview"
+                  />
+                  <button 
+                    @click="removeSelectedImage"
+                    class="absolute -top-1.5 -right-1.5 p-0.5 bg-red-600 rounded-full hover:bg-red-700 transition-colors"
+                  >
+                    <XMarkIcon class="h-5 w-5 text-white" />
+                  </button>
                 </div>
               </div>
-              <div v-else class="relative w-full h-[200px] sm:h-[240px]">
-                <img 
-                  :src="imagePreview" 
-                  class="w-full h-full object-contain rounded-lg"
-                  alt="Preview"
-                />
-                <button 
-                  @click="removeSelectedImage"
-                  class="absolute -top-1.5 -right-1.5 p-0.5 bg-red-600 rounded-full hover:bg-red-700 transition-colors"
+            </div>
+
+            <!-- 模型选择 -->
+            <div>
+              <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
+                Model Selection
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <button
+                  @click="isFastMode = false"
+                  :class="[
+                    'flex flex-col items-center justify-center gap-2 py-4 px-4 rounded-lg border-2 transition-all duration-200',
+                    !isFastMode
+                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
+                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
+                  ]"
                 >
-                  <XMarkIcon class="h-5 w-5 text-white" />
+                  <div class="text-center">
+                    <div class="text-sm font-semibold">Veo 3</div>
+                    <div class="text-xs opacity-75">Standard Quality</div>
+                  </div>
+                </button>
+                <button
+                  @click="isFastMode = true"
+                  :class="[
+                    'flex flex-col items-center justify-center gap-2 py-4 px-4 rounded-lg border-2 transition-all duration-200',
+                    isFastMode
+                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
+                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
+                  ]"
+                >
+                  <div class="text-center">
+                    <div class="text-sm font-semibold">Veo 3 Fast</div>
+                    <div class="text-xs opacity-75">Fast Generation</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- 尺寸选择 -->
+            <div>
+              <label class="block text-sm lg:text-base font-semibold text-gray-300 mb-2">
+                Video Size
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <button
+                  @click="selectedSize = '16:9'"
+                  :class="[
+                    'flex items-center justify-center gap-2 py-3 px-4 rounded-lg border-2 transition-all duration-200',
+                    selectedSize === '16:9'
+                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
+                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
+                  ]"
+                >
+                  <div class="w-8 h-4.5 bg-current rounded-sm"></div>
+                  <span class="text-sm font-medium">16:9 (Landscape)</span>
+                </button>
+                <button
+                  @click="selectedSize = '9:16'"
+                  :class="[
+                    'flex items-center justify-center gap-2 py-3 px-4 rounded-lg border-2 transition-all duration-200',
+                    selectedSize === '9:16'
+                      ? 'border-[#f49d25] bg-[#f49d25]/10 text-[#f49d25]'
+                      : 'border-gray-700 bg-[#111111] text-gray-400 hover:border-gray-600 hover:text-gray-300'
+                  ]"
+                >
+                  <div class="w-4.5 h-8 bg-current rounded-sm"></div>
+                  <span class="text-sm font-medium">9:16 (Portrait)</span>
                 </button>
               </div>
             </div>
           </div>
-
-          <!-- 分享到作品展示选项 -->
-          <!-- <div class="flex items-center gap-1.5 mt-3">
-            <div class="flex items-center gap-1.5">
-              <input 
-                type="checkbox" 
-                id="showInGallery" 
-                v-model="isShow"
-                class="w-3 h-3 rounded border-gray-600 bg-gray-700 text-[#f49d25] focus:ring-[#f49d25] focus:ring-offset-gray-800"
-              />
-              <label for="showInGallery" class="text-sm text-gray-300">Share to Gallery</label>
-            </div>
-            <div class="group relative">
-              <InformationCircleIcon class="h-4 w-4 text-gray-400 cursor-help" />
-              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1.5 bg-[#f49d25] text-black text-xs rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-10">
-                Your work will be displayed in the gallery when checked
-              </div>
-            </div>
-          </div> -->
 
           <!-- 生成按钮 -->
           <button 
@@ -229,7 +294,7 @@
                   </button>
                 </div>
                 <div class="absolute top-3 sm:top-4 left-1/2 transform -translate-x-1/2 text-[#f49d25] px-3 sm:px-4 py-1 sm:py-1.5 rounded-lg text-sm sm:text-base font-semibold shadow-lg pointer-events-none select-none whitespace-nowrap z-10">
-                  Veo3 AI Video Generation Demo
+                  Veo 3 AI Video Generation Demo
                 </div>
               </div>
               <!-- 结果视频 -->
@@ -305,6 +370,8 @@
   const previewVideoLoading = ref<{ [key: string]: boolean }>({}) // 预览视频加载状态
   let progressInterval: number | null = null // 进度条定时器
   const isFastMode = ref(false) // 快速生成模式开关
+  const activeTab = ref('text') // 当前激活的选项卡
+  const selectedSize = ref('16:9') // 视频尺寸
   
   // 分辨率选项
   const resolution = ref('768p')
@@ -322,10 +389,11 @@
   const scoreData = ref<{ [key: string]: number }>({})
   
   const needCredits = computed(() => {
-    return scoreData.value?.[isFastMode.value ? 'veo3_fast' : 'veo3'] ?? 1
+    // 固定积分消耗配置：veo3是300，veo3_fast是200
+    return isFastMode.value ? 200 : 300
   })
   
-  // 获取积分数据的函数
+  // 获取积分数据的函数（现在使用固定积分配置，保留此函数以备将来使用）
   const fetchScoreData = async () => {
     try {
       const response = await getScore()
@@ -339,9 +407,11 @@
           return acc
         }, {})
         scoreData.value = data
+        console.log('积分数据获取成功，但当前使用固定配置：veo3=300, veo3_fast=200')
       }
     } catch (error) {
       console.error('Failed to fetch score data:', error)
+      console.log('使用固定积分配置：veo3=300, veo3_fast=200')
     }
   }
   
@@ -393,9 +463,22 @@
       prompt.value = latestTask.prompt
       // isShow.value = latestTask.isShow
       
-      if (latestTask.imageUrls) {
-        selectedImage.value = latestTask.imageUrls[0] ? new File([], latestTask.imageUrls[0]) : null
-        imagePreview.value = latestTask.imageUrls[0] || ''
+      // 恢复尺寸设置
+      if (latestTask.size) {
+        selectedSize.value = latestTask.size
+      }
+      
+      // 根据任务类型设置选项卡
+      if (latestTask.type === 'image') {
+        activeTab.value = 'image'
+        if (latestTask.imageUrls) {
+          selectedImage.value = latestTask.imageUrls[0] ? new File([], latestTask.imageUrls[0]) : null
+          imagePreview.value = latestTask.imageUrls[0] || ''
+        }
+      } else {
+        activeTab.value = 'text'
+        selectedImage.value = null
+        imagePreview.value = ''
       }
       
       // 如果任务还在进行中，只恢复生成状态，不显示进度条
@@ -437,7 +520,7 @@
     window.addEventListener('taskCompleted', handleTaskCompleted)
 
     // 获取积分数据
-    fetchScoreData()
+    // fetchScoreData()
 
     // 添加视频播放状态监听
     if (previewVideo.value) {
@@ -578,6 +661,10 @@
     imagePreview.value = ''
     // 清空表单
     prompt.value = ''
+    // 重置选项卡到文生视频
+    activeTab.value = 'text'
+    // 重置尺寸到默认值
+    selectedSize.value = '16:9'
     // 进度条归零
     stopProgressAnimation()
     progress.value = 0
@@ -590,6 +677,15 @@
       removeSelectedImage()
     }
   })
+
+  // 监听选项卡变化
+  // watch(activeTab, (newTab) => {
+  //   if (newTab === 'image' && isFastMode.value) {
+  //     // 切换到图生视频选项卡时，如果快速模式是开启的，自动关闭它
+  //     isFastMode.value = false
+  //     $toast.info('Fast mode disabled for image-to-video generation')
+  //   }
+  // })
   
   // 统一的事件处理方法
   const handleAction = (action: string, ...args: any[]) => {
@@ -610,6 +706,18 @@
             return
           }
 
+          // 在图生视频模式下检查是否上传了图片
+          if (activeTab.value === 'image' && !selectedImage.value) {
+            $toast.warning('Please upload an image for image-to-video generation')
+            return
+          }
+
+          // 在图生视频模式下检查快速模式设置
+          // if (activeTab.value === 'image' && isFastMode.value) {
+          //   $toast.warning('Fast generation mode only supports text-to-video generation. Please switch to text-to-video tab or disable fast mode.')
+          //   return
+          // }
+
           // 立即设置生成状态，显示loading
           isGenerating.value = true
 
@@ -617,14 +725,15 @@
             // 准备基础请求数据
             let requestData = {
               prompt: prompt.value.trim(),
-              model: isFastMode.value ? 'veo3_fast' : 'veo3'
+              model: isFastMode.value ? 'veo3_fast' : 'veo3',
+              ratio: selectedSize.value
             }
 
             let response: any
 
             // 判断是否需要上传图片
-            if (!isFastMode.value && selectedImage.value) {
-              // 普通模式且有上传图片，使用图生视频API
+            if (activeTab.value === 'image' && selectedImage.value) {
+              // 图生视频模式且有上传图片，使用图生视频API
               try {
                 // 上传图片并获取URL
                 const uploadResponse = await upload({
@@ -637,8 +746,7 @@
                     ...requestData,
                     image_url: uploadResponse.data
                   }
-                  console.log('普通模式有上传图片',requestData)
-                  // return
+                  console.log('图生视频模式有上传图片',requestData)
                   // 调用图生视频API
                   response = await createTaskImgVideo(requestData)
                 } else {
@@ -650,10 +758,9 @@
                 isGenerating.value = false
                 return
               }
-            } else {
-              console.log('普通模式没有上传图片',requestData)
-              // return
-              // 快速模式或普通模式没有上传图片，使用文生视频API
+            } else if (activeTab.value === 'text' || (activeTab.value === 'image' && !selectedImage.value)) {
+              console.log('文生视频模式或图生视频模式没有上传图片',requestData)
+              // 文生视频模式或图生视频模式没有上传图片，使用文生视频API
               response = await createTaskTextVideo(requestData)
             }
 
@@ -667,9 +774,10 @@
                 startTime: Date.now(),
                 isGenerating: true,
                 prompt: prompt.value.trim(),
-                type: selectedImage.value ? 'image' : 'text',
+                type: activeTab.value === 'image' ? 'image' : 'text',
                 imageUrl: selectedImage.value ? imagePreview.value : undefined,
-                model: isFastMode.value ? 'veo3_fast' : 'veo3'
+                model: isFastMode.value ? 'veo3_fast' : 'veo3',
+                size: selectedSize.value
               })
               
               // 开始检查任务状态
@@ -842,12 +950,14 @@
     prompt: string;
     model: string;
     image_url?: string;
+    size: string;
   }
 
   // 修改请求数据的类型
   let requestData: RequestData = {
     prompt: prompt.value.trim(),
-    model: isFastMode.value ? 'veo3_fast' : 'veo3'
+    model: isFastMode.value ? 'veo3_fast' : 'veo3',
+    size: selectedSize.value
   }
 
   // 修改 VideoTask 接口（如果存在的话）
@@ -859,6 +969,7 @@
     type: 'image' | 'text';
     imageUrl?: string;
     model: string;
+    size: string;
   }
 
   // 灵感提示词列表
