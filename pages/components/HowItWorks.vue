@@ -2,10 +2,11 @@
   <section class="py-20 bg-blue-pale">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f49d25] to-[#ff8c42] sm:text-5xl animate-fade-in">
-          how to use google veo 3
+          <h2 class="text-[#f49d25] text-center text-4xl font-bold mb-4 font-medium ">
+        <!-- <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#f49d25] to-[#ff8c42] sm:text-5xl animate-fade-in custom-line-height"> -->
+          How To Use Google veo 3
         </h2>
-        <p class="mt-4 text-xl text-gray-300 animate-slide-up">
+        <p class="mt-8 text-xl text-gray-300 animate-slide-up">
           Simple 3-step process to create stunning videos with Veo 3 AI technology
         </p>
       </div>
@@ -107,6 +108,12 @@ const steps = [
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* 自定义行高，确保下行字母完整显示 */
+.custom-line-height {
+  line-height: 1.8 !important;
+  padding-bottom: 0.5rem;
 }
 
 /* 响应式优化 */

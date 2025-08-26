@@ -2,7 +2,7 @@
   <section class="py-20 bg-blue-pale">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-extrabold text-[#f49d25] sm:text-5xl">
+        <h2 class="text-[#f49d25] text-center text-4xl font-bold mb-4 font-medium">
           Veo 3 AI Core Features
         </h2>
         <p class="mt-4 text-xl text-gray-300">
@@ -113,8 +113,8 @@ const mainFeatures = [
     title: "Advanced Veo 3 AI Technology",
     description: "Veo 3 AI leverages cutting-edge Veo 3 technology to transform text descriptions and images into dynamic videos. Our Veo 3 AI understands context and creates natural, fluid animations with professional quality.",
     icon: BoltIcon,
-    video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-01.mp4",
-    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-01.jpg",
+    video: "https://resp.vidveo3.com/vidveo/video/veo3-Core-Features-video-01.mp4",
+    poster: "https://resp.vidveo3.com/vidveo/images/veo3-Core-Features-video-01.webp",
     points: [
       "Veo 3-powered video generation",
       "Natural motion and transitions",
@@ -126,8 +126,8 @@ const mainFeatures = [
     title: "Dual Generation Modes",
     description: "Choose between text-to-video or image-to-video generation.Upload one image (JPG/JPEG or PNG format, max 10MB), or create Veo 3 videos from text descriptions with unlimited creativity.",
     icon: CommandLineIcon,
-    video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.mp4",
-    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.jpg",
+    video: "https://resp.vidveo3.com/vidveo/video/veo3-Core-Features-video-02.mp4",
+    poster: "https://resp.vidveo3.com/vidveo/images/veo3-Core-Features-video-02.webp",
     points: [
       "Text-to-video generation",
       "Image-to-video conversion",
@@ -139,8 +139,8 @@ const mainFeatures = [
     title: "High-Quality Video Output",
     description: "Generate professional videos with different quality settings using Veo 3 AI's advanced technology. The Veo 3 AI maintains image details while creating smooth motion, delivering results suitable for commercial use.",
     icon: VideoCameraIcon,
-    video: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-03.mp4",
-    poster: "https://img.xbgremove.com/veo3/veo3-Core-Features-video-02.jpg",
+    video: "https://resp.vidveo3.com/vidveo/video/veo3-Core-Features-video-03.mp4",
+    poster: "https://resp.vidveo3.com/vidveo/images/veo3-Core-Features-video-03.webp",
     points: [
       "HD video output",
       "Detail preservation",
