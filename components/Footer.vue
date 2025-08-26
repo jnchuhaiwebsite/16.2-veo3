@@ -29,11 +29,11 @@
             <div class="flex items-center gap-4 mb-4">
               <img src="/logo.png" alt="veo 3 AI - AI Image Animator Platform" loading="lazy" class="h-16 md:h-24">
               <p class="text-sm text-gray-400 max-w-xl">
-                veo3 revolutionizes your photos into captivating motion videos through cutting-edge AI animation technology, delivering Hollywood-grade visual effects in minutes.
+                Veo 3 revolutionizes your photos into captivating motion videos through cutting-edge AI animation technology, delivering Hollywood-grade visual effects in minutes.
               </p>
             </div>
             <div class="flex flex-col items-start gap-2 text-sm text-gray-500">
-              <p>© 2025 veo3 AI. All rights reserved.</p>
+              <p>© 2025 Veo 3 AI. All rights reserved.</p>
               <div class="text-left">
                 <p class="text-gray-400 text-sm">
                  
