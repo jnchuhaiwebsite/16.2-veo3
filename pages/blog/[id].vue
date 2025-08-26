@@ -47,7 +47,7 @@
             <NuxtLink 
               v-for="relatedPost in relatedPosts" 
               :key="relatedPost.id"
-              :to="`/blog/${relatedPost.id}`"
+              :to="`/blog/${relatedPost.url}`"
               class="p-4 border border-gray-700 rounded-lg hover:bg-gray-700 transition-colors"
             >
               <h2 class="font-medium mb-2 text-lg text-gray-200">{{ relatedPost.title }}</h2>
