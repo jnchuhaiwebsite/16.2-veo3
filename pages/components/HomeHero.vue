@@ -550,8 +550,8 @@
   })
   
   // 预览视频URL
-  const previewVideoUrl = 'https://resource.vidveo3.com/veo3/veo3demo.mp4'
-  const previewVideoPoster = 'https://resource.vidveo3.com/veo3/veo3-video-generated-image-demonstration.jpg'
+  const previewVideoUrl = 'https://resp.vidveo3.com/vidveo/video/veo3demo.mp4'
+  const previewVideoPoster = 'https://resp.vidveo3.com/vidveo/images/veo3demo.webp'
   
   // 处理视频加载事件
   const handleVideoLoadStart = (target: EventTarget | null) => {
