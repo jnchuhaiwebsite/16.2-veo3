@@ -16,12 +16,12 @@
           <!-- PC端导航 -->
           <div class="hidden lg:flex items-center space-x-8">
             <template v-for="(section, index) in sections" :key="index">
-              <NuxtLink
-                :to="section.href || `/#${section.id}`"
+              <div
+                @click="handleNavClick(section.href || section.id)"
                 class="text-gray-300 hover:text-[#f49d25] transition-colors cursor-pointer"
               >
                 {{ section.name }}
-              </NuxtLink>
+              </div>
             </template>
             <!-- 添加Personal Center和Credits -->
             <template v-if="isSignedIn">
@@ -113,13 +113,12 @@
             <!-- 导航链接 -->
             <div class="space-y-2 mb-6">
               <template v-for="(section, index) in sections" :key="index">
-                <NuxtLink
-                  :to="section.href || `/#${section.id}`"
-                  @click="isOpen = false"
+                <div
+                  @click="() => { handleNavClick(section.href || section.id); isOpen = false; }"
                   class="block text-gray-300 hover:text-[#f49d25] text-base py-2 transition-colors cursor-pointer"
                 >
                   {{ section.name }}
-                </NuxtLink>
+                </div>
               </template>
               <NuxtLink
                 v-if="isSignedIn"
@@ -215,8 +214,7 @@ watch(isOpen, (newValue) => {
 
 // 组件卸载时恢复body滚动并移除事件监听
 onUnmounted(() => {
-  document.body.style.overflow = "";
-  window.removeEventListener("scroll", handleScroll);
+  // 清理工作已完成
 });
 </script>
 
