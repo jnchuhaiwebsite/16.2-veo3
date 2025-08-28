@@ -52,7 +52,19 @@ export default defineNuxtConfig({
         { name: 'application-name', content: 'veo 3 AI' },
       ],
       script: [
-        { src: '/js/c6h.js', async: true } 
+        { src: '/js/c6h.js', async: true }, 
+        { 
+          src: 'https://www.googletagmanager.com/gtag/js?id=AW-17508701187', 
+          async: true 
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17508701187');
+          `
+        }
       ], // 外部脚本
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
