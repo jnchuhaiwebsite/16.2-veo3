@@ -112,7 +112,7 @@ if (route.query.paysuccess == '1') {
       {
         innerHTML: `
           gtag('event', 'conversion', {
-              'send_to': 'AW-17508701187/9teOCP7ux44bEIOo5pxB-',
+              'send_to': 'AW-17508701187/9teOCP7ux44bEIOo5pxB',
               'value': 1.0,
               'currency': 'USD',
               'transaction_id': ''
