@@ -19,7 +19,7 @@ export const urlList = {
   createTasksTextVideo: baseUrl + '/api/task/veo3video/create',     // 创建任务-文生视频
   getSubPlans: baseUrl + '/api/website/priceList',     // 获取套餐信息
   getSubplansTest: baseUrl + '/api/website/odl',     // 获取测试套餐信息
-  payOrder: baseUrl + '/api/pay/paypal',  // 支付
+  payOrder: baseUrl + '/api/pay/stripe',  // 支付
   opusList: baseUrl + '/api/user/opus_list', // 获取用户作品列表
   checkTask: baseUrl + '/api/task/veo3/check_task_status', // 检查任务
   friendLinkList: baseUrl + '/api/cms/friendLinkList', // 获取友情链接列表
@@ -41,7 +41,6 @@ export const urlList = {
  */
 export const setUserInfo = async (data: any) => {
   try {
- 
     // 如果已有有效Token，直接返回缓存的用户信息
     const token = getValidToken();
     if (token) {
